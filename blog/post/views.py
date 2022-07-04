@@ -1,9 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
-from django.http import HttpResponse
 
 
 def home(request):
     posts = Post.objects.all()
-    return HttpResponse(request, 'Hello')
-    # return render(request, 'home.html', context={'posts': posts})
+    return render(request, 'home.html', context={'posts': posts})
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'post_detail.html', {'post': post})
+
+
+def create_post(request):
+    pass
