@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('post/<int:pk>/', views.post_detail, name='post_detail')
+    path('post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('post_edit/', views.post_edit, name='post_edit')
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

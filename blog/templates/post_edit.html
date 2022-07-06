@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="static/css/styles.css">
+{% extends 'base.html' %}
+{% block content %}
+<h3>Create a new post</h3>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-secondary">Save</button>
+</form>
+{% endblock %}
